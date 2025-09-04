@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dam Riche Gold Warehouse — Mexico</title>
+  <meta name="description" content="Rokib Gold Warehouse in Mexico — investment-grade gold bars, coins, and jewelry. Secure sourcing, fair pricing, fast shipping across Mexico and worldwide." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --card:#111216;
+      --text:#f6f7fb;
+      --muted:#b8bcc7;
+      --gold:#d4af37; /* classic gold */
+      --accent:#1f2937; /* slate */
+      --success:#16a34a;
+      --danger:#ef4444;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max:1200px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", sans-serif; color:var(--text); background:linear-gradient(180deg, #0a0a0b 0%, #121317 100%);
+    }
+    a{color:var(--gold); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px);
+      background:rgba(10,10,12,.6); border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .nav{display:flex; align-items:center; justify-content:space-between; height:70px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.3px}
+    .brand .logo{width:40px; height:40px; border-radius:12px; background:radial-gradient(circle at 30% 30%, #fce18a, #d3a92e 45%, #8a6a19 100%); box-shadow:inset 0 2px 6px rgba(0,0,0,.35), 0 4px 14px rgba(212,175,55,.3)}
+    .nav a.btn{display:inline-block; padding:10px 16px; border-radius:999px; background:var(--gold); color:#101010; font-weight:700; box-shadow:0 6px 20px rgba(212,175,55,.25)}
+    .navlinks{display:flex; gap:18px; align-items:center}
+    .navlinks a{color:var(--text); opacity:.85}
+    .navlinks a:hover{opacity:1}
+
+    .hero{padding:72px 0 48px}
+    .hero .grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center}
+    .h1{font-size:clamp(28px, 4vw, 56px); line-height:1.05; margin:0 0 14px}
+    .lead{font-size:clamp(15px, 2.1vw, 18px); color:var(--muted)}
+    .cta{margin-top:22px; display:flex; gap:12px; flex-wrap:wrap}
+    .btn{
+      border:none; cursor:pointer; padding:12px 18px; font-weight:700; border-radius:14px; transition:transform .08s ease; display:inline-flex; gap:10px; align-items:center
+    }
+    .btn.primary{background:var(--gold); color:#111}
+    .btn.ghost{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.14)}
+    .btn:active{transform:translateY(1px)}
+    .heroCard{
+      background:linear-gradient(145deg, #0c0d11, #171922); padding:16px; border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.08)
+    }
+    .heroCard img{width:100%; height:360px; object-fit:cover; border-radius:14px}
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:#12131a; color:var(--muted); border:1px solid rgba(255,255,255,.08); font-size:12px}
+
+    section{padding:56px 0}
+    .section-title{font-size:28px; margin:0 0 18px}
+    .muted{color:var(--muted)}
+
+    .cards{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px}
+    .card{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
+    .card img{width:100%; height:200px; object-fit:cover}
+    .card .p{padding:16px}
+
+    .gallery{display:grid; grid-template-columns:repeat(4, 1fr); gap:10px}
+    .gallery img{width:100%; height:180px; object-fit:cover; border-radius:12px; border:1px solid rgba(255,255,255,.08)}
+
+    .about{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+    .about .box{background:var(--card); padding:20px; border-radius:var(--radius); border:1px solid rgba(255,255,255,.08)}
+
+    .contact{display:grid; grid-template-columns:1.2fr .8fr; gap:24px}
+    .contact .box{background:var(--card); padding:20px; border-radius:var(--radius); border:1px solid rgba(255,255,255,.08)}
+    .contact ul{list-style:none; padding:0; margin:0}
+    .contact li{padding:10px 0; border-bottom:1px dashed rgba(255,255,255,.08)}
+
+    footer{padding:30px 0; border-top:1px solid rgba(255,255,255,.08); color:var(--muted)}
+
+    /* “All About” link uses :target to open a full details panel without JS */
+    #all-about{position:fixed; inset:0; background:rgba(9,10,12,.88); backdrop-filter:blur(10px); display:none; z-index:60;}
+    #all-about:target{display:block}
+    .drawer{max-width:900px; margin:28px auto; background:var(--card); border-radius:18px; padding:22px; border:1px solid rgba(255,255,255,.10); box-shadow:var(--shadow)}
+    .drawer h2{margin-top:0}
+    .close{float:right; font-weight:800; padding:8px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.14)}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero .grid, .about, .contact{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr 1fr}
+      .gallery{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 640px){
+      .cards{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      .heroCard img{height:260px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>Dam Riche Gold Warehouse</span>
+      </div>
+      <div class="navlinks">
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <!-- This is the special link that shows everything about the website -->
+        <a class="btn" href="#all-about">All About This Website</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="home">
+      <div class="grid">
+        <div>
+          <span class="pill">🇲🇽 Mexico • Investment‑Grade</span>
+          <h1 class="h1">Sharp. Secure. Genuine Gold — from a Warehouse You Can Trust.</h1>
+          <p class="lead">We source LBMA‑compliant bars, brilliant coins, and premium jewelry with transparent pricing and verified purity. Nationwide delivery across Mexico and export on request.</p>
+          <div class="cta">
+            <a href="#products" class="btn primary">Shop Gold</a>
+            <a href="#about" class="btn ghost">Why Choose Us</a>
+          </div>
+          <p class="muted" style="margin-top:10px">Chrome ✔ • Android ✔ • iPhone ✔ • Windows/Mac ✔</p>
+        </div>
+        <div class="heroCard">
+          <img src="c:\Users\Dell 7480 i7\Downloads\pexels-pixabay-47047.jpg" alt="Stacks of gold bars in a secure warehouse" />
+        </div>
+      </div>
+    </section>
+
+    <section id="products">
+      <h2 class="section-title">Gold We Carry</h2>
+      <p class="muted">Every item is tested with XRF analysis, sealed or tagged, and accompanied by a digital certificate of authenticity.</p>
+      <div class="cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1695653420107-3a8ae4e90b45?q=80&w=1400&auto=format&fit=crop" alt="Investment gold bars 24k"/>
+          <div class="p">
+            <h3>24K Investment Bars (99.99%)</h3>
+            <p>1g to 1kg bars from recognized refiners. Serial‑numbered, tamper‑evident packaging. Ideal for long‑term holding and vault storage.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1571731956672-643207bdf62d?q=80&w=1400&auto=format&fit=crop" alt="Gold coins collection"/>
+          <div class="p">
+            <h3>Gold Coins</h3>
+            <p>Mexican Libertad, American Eagle, Maple Leaf, Krugerrand and more. Brilliant Uncirculated and Proof tiers available.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="c:\Users\Dell 7480 i7\Downloads\pexels-pixabay-47047.jpg" alt="22k gold jewelry"/>
+          <div class="p">
+            <h3>22K & 18K Jewelry</h3>
+            <p>Chains, bangles, pendants and sets in classic and modern designs. Sold by weight with fair labor‑inclusive pricing.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="c:\Users\Dell 7480 i7\Downloads\h.jpg" alt="Gold granules for manufacturing"/>
+          <div class="p">
+            <h3>Industrial Gold Granules</h3>
+            <p>High‑purity casting grain for jewelers and manufacturers. Consistent shot size for clean melts.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="c:\Users\Dell 7480 i7\Downloads\w.jpg" alt="Assay testing equipment"/>
+          <div class="p">
+            <h3>Assay & Buyback</h3>
+            <p>We test and buy gold at competitive spreads. Immediate settlement in MXN or USD, documentation provided.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="c:\Users\Dell 7480 i7\Downloads\h.jpg" alt="Secure vault storage"/>
+          <div class="p">
+            <h3>Secure Storage</h3>
+            <p>Vault options with insurance. Allocate by serial number, on‑demand audits, and transfer support.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Gallery</h2>
+      <div class="gallery">
+        <img src="c:\Users\Dell 7480 i7\Downloads\w.jpg" alt="Close‑up gold bar texture">
+        <img src="c:\Users\Dell 7480 i7\Downloads\ay.jpg" alt="Gold coin stack">
+        <img src="c:\Users\Dell 7480 i7\Downloads\h.jpg" alt="Gold necklaces">
+        <img src="c:\Users\Dell 7480 i7\Downloads\pexels-pixabay-47047.jpg" alt="Gold bullion rows in a vault">
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="box">
+        <h2 class="section-title">About Dam Riche Gold Warehouse</h2>
+        <p>Based in Mexico City, we operate a secure warehouse that consolidates certified gold products from trusted refiners and mints. Our mission is simple: deliver genuine metal at transparent prices with excellent service.</p>
+        <ul class="muted">
+          <li>✔ Verified purity (XRF & density checks)</li>
+          <li>✔ LBMA‑compliant sources & traceability</li>
+          <li>✔ Same‑day pickup & insured shipping</li>
+          <li>✔ Buyback & liquidation support</li>
+        </ul>
+        <p style="margin-top:10px">Want a quick overview? Use the <a href="#all-about">All About This Website</a> link — it opens a full summary panel and works perfectly on Chrome, Android, iOS, and desktop browsers.</p>
+      </div>
+      <div class="box">
+        <h3>Pricing & Purity Notes</h3>
+        <p class="muted">Bar premiums vary by weight and brand. Coins carry numismatic and demand premiums. Jewelry is priced by weight plus making fees. All items are tested and sealed before hand‑off.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="box">
+        <h2 class="section-title">Visit or Contact Us</h2>
+        <ul>
+          <li><strong>Warehouse Address (Mexico):</strong><br>Av. Paseo de la Reforma 250, Col. Juárez, Cuauhtémoc, 06600 Ciudad de México, CDMX</li>
+          <li><strong>Phone (MX):</strong> +2349078790006</li>
+          <li><strong>Email (Gmail):</strong> rokibmusa13@gmail.com</li>
+          <li><strong>Hours:</strong> Mon–Sat, 9:00 – 18:00 (CST)</li>
+        </ul>
+        <p class="muted" style="margin-top:6px">For wholesale, export, or custom orders, email us with your required purity, form factor, and target timeline.</p>
+      </div>
+      <div class="box">
+        <h3>Quick CTA</h3>
+        <p>Ready to get started? Tap below and we’ll guide you to products and contact.</p>
+        <p><a class="btn primary" href="#products">Explore Products</a> <a class="btn ghost" href="#contact">Get in Touch</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="display:flex; justify-content:space-between; gap:14px; align-items:center; flex-wrap:wrap">
+        <small>© <span id="year"></span> Dam Riche Gold Warehouse • Mexico</small>
+        <small>All imagery is for illustration; actual serials/assays provided on purchase.</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ALL ABOUT PANEL (opens by clicking the special link) -->
+  <div id="all-about" aria-hidden="true">
+    <div class="drawer">
+      <a class="close" href="#">✕ Close</a>
+      <h2>All About This Website</h2>
+      <p>This site is a responsive, mobile‑first HTML/CSS page designed to look and feel like a real warehouse storefront. It includes: a hero with calls‑to‑action, product categories with photos, a gallery, credibility notes, and a contact block with a Mexico address, phone number, and Gmail. The gold accent color and strong contrast deliver a sharp, premium aesthetic.</p>
+      <ul>
+        <li>Works on Chrome, Safari, Firefox, Edge (Android, iOS, Windows, macOS).</li>
+        <li>No JavaScript required; the panel you’re reading uses the CSS <code>:target</code> trick.</li>
+        <li>All links are standard anchors that function across devices.</li>
+        <li>Single file (easy to host). Replace images/text to customize.</li>
+      </ul>
+      <p>Tip: Replace the Gmail, phone, and address with your own operational details before going live.</p>
+    </div>
+  </div>
+
+  <script>
+    // tiny enhancement: current year in footer (optional; site works without JS)
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
